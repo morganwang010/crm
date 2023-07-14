@@ -32,3 +32,4 @@ go get github.com/spf13/viper
 go install github.com/anqiansong/sqlgen@latest
 使用sqlgen生成models文件
 创建models文件夹，在下面创建一个sql文件，直接在命令行进入到models文件下，执行sqlgen即可。
+创建routes文件夹，在下面创建route.go用来管理各个路由,只需在main.go中实例化一个即可
