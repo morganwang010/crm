@@ -24,3 +24,11 @@ swag init
 #此时会将项目下的文件里的api接口都自动生成文档
 
 docker run -p 8080:8080 -e SWAGGER_JSON=/app/docs/swagger.json -v $(pwd)/docs:/app/docs swaggerapi/swagger-ui:v3.52.0
+
+读取数据层使用gorm及sqlgen，接口token验证使用PASETO (Platform-Agnostic SEcurity TOkens)，配置管理使用viper
+安装软件包：
+go get -u github.com/jinzhu/gorm
+go get github.com/spf13/viper
+go install github.com/anqiansong/sqlgen@latest
+使用sqlgen生成models文件
+创建models文件夹，在下面创建一个sql文件，直接在命令行进入到models文件下，执行sqlgen即可。

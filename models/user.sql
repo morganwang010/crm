@@ -1,29 +1,16 @@
-CREATE TABLE `user`
-(
-    `id`          bigint(10) unsigned NOT NULL AUTO_INCREMENT primary key,
-    `name`        varchar(255) COLLATE utf8mb4_general_ci NULL COMMENT 'The username',
-    `password`    varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT 'The \n user password',
-    `mobile`      varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT 'The mobile phone number',
-    `gender`      char(10) COLLATE utf8mb4_general_ci      NOT NULL COMMENT 'gender,male|female|unknown',
-    `nickname`    varchar(255) COLLATE utf8mb4_general_ci          DEFAULT '' COMMENT 'The nickname',
-    `type`        tinyint(1) COLLATE utf8mb4_general_ci DEFAULT 0 COMMENT 'The user type, 0:normal,1:vip, for test golang keyword',
-    `create_at` timestamp NULL,
-    `update_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    UNIQUE KEY `name_index` (`name`),
-    UNIQUE KEY `mobile_index` (`mobile`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'user table' COLLATE=utf8mb4_general_ci;
-
--- fn: FindOne
-select * from user where id = ? limit 1;
-
--- fn: UpdateOne
-update user set name = ? where id = ?;
-
--- fn: DeleteOne
-delete from user where id = ? limit 1;
-
--- fn: FindLimit
-select * from user where id > ? limit ?;
-
--- fn: Count
-select count(id) AS count from user where id > ?;
+CREATE TABLE `user` (
+	employee_number varchar(255) NOT NULL,
+	role_name varchar(32) NOT NULL,
+	create_time varchar(20) NULL,
+	update_time varchar(20) NULL,
+	`password` varchar(100) NULL,
+	is_active varchar(1) NULL DEFAULT 0,
+	`type` varchar(2) NULL DEFAULT 0,
+	mail varchar(100) NULL,
+	org_id int4 NULL,
+	org_name varchar(100) NULL,
+	id  int NOT NULL,
+	CONSTRAINT user_pkey PRIMARY KEY (id)
+);
+-- fn: FindAll
+select * from user;

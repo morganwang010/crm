@@ -1,0 +1,32 @@
+CREATE TABLE  node_info (
+	id varchar(50) NOT NULL,
+	layer varchar(50) NOT NULL,
+	ip varchar(50) NOT NULL,
+	"owner" varchar(50) NOT NULL,
+	create_time varchar(50) NOT NULL,
+	app_id varchar(50) NOT NULL,
+	replication_status varchar(50) NULL,
+	pmorvm varchar(50) NULL,
+	component varchar(50) NULL,
+	service_name varchar(50) NULL,
+	insite_replication_method varchar(50) NULL,
+	insite_replication_type varchar(50) NULL,
+	outsite_repilication_method varchar(50) NULL,
+	outsite_repilication_type varchar(50) NULL,
+	site_id varchar(50) NULL,
+	service_ip varchar NULL,
+	hostname varchar NULL,
+	db_account varchar NULL,
+	db_password varchar NULL,
+	os_account varchar NULL,
+	os_password varchar NULL,
+	port varchar NULL,
+	os_type varchar NULL,
+	sid varchar(50) NULL,
+	db_name varchar NULL,
+	CONSTRAINT node_info_pk PRIMARY KEY (id)
+);
+
+
+-- fn: FindOne
+select * from node_info where owner = ? limit 1;
